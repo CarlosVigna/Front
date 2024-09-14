@@ -1,81 +1,122 @@
+/* Estilos Globais */
+body {
+  font-family: 'Roboto', sans-serif; /* Fonte moderna */
+  background-color: #F9F9F9; /* Fundo claro e neutro */
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Principal */
 .container {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  padding-top: 100px;
+  padding: 50px 20px;
+  min-height: 100vh;
 }
 
+/* Título */
 h1 {
-  color: #fff;
-  font-size: 28px;
+  color: #333333; /* Cor escura para contraste */
+  font-size: 32px;
   text-align: center;
-
+  margin-bottom: 20px;
+  font-weight: 600; /* Peso de fonte mais robusto */
 }
 
+/* Formulário */
 form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   padding: 30px;
-  border-radius: 10px;
-  background-color: #2E2D4E ;
-  max-width: 50%;
-  width: 400px;
-  margin-bottom: 20px;
-
-  & button {
-    border-radius: 30px;
-    background-color: #8b8ae1 ;
-    height: 40px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 15px;
-
-  } 
-
-  & button:hover {
-    opacity: 0.8;
-  }
-
-  & input {
-    border: 1px solid #48456c;
-    border-radius: 30px;
-    height: 40px;
-    background-color: #363653;
-    color: #fff;
-    font-size: 16px;
-    padding-left: 10px;
-    outline: none;
-  }
-
+  border-radius: 12px;
+  background-color: #ec1111; /* Fundo vermelho */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  max-width: 400px;
+  width: 100%;
 }
 
+/* Estilos Comuns para Botões */
+.button {
+  border-radius: 25px;
+  background-color: #b94e33; /* Cor principal */
+  height: 45px;
+  border: none;
+  color: #FFFFFF; /* Texto branco */
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 100%; /* Faz com que os botões usem toda a largura disponível do formulário */
+  
+}
+
+.button:hover {
+  background-color: #8d8989; /* Cor um pouco mais escura para hover */
+  transform: translateY(-2px); /* Efeito de elevação */
+}
+
+.button:active {
+  transform: translateY(0); /* Reseta o efeito de elevação quando clicado */
+}
+
+/* Campos de Entrada */
+input {
+  border: 1px solid #E0E0E0; /* Borda cinza claro */
+  border-radius: 25px;
+  height: 45px;
+  background-color: #FFFFFF; /* Fundo branco */
+  color: #333333; /* Texto escuro */
+  font-size: 16px;
+  padding: 0 20px; /* Espaçamento interno */
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra interna */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: #ffffff; /* Cor de foco principal */
+  box-shadow: 0 0 5px rgba(250, 250, 250, 0.3); /* Sombra de foco */
+}
+
+/* Cartões */
 .card {
   display: flex;
   justify-content: space-between;
-  background-color: #2e2d4e;
-  margin: 10px;
-  padding: 10px;
-  width: 400px;
-  border-radius: 10px;
-
-  & p {
-    color: #fff;
-    font-weight: bold;
-  }
-
-  & span {
-    font-weight: normal;
-  }
-
+  background-color: #FFFFFF; /* Fundo branco */
+  margin: 10px 0;
+  padding: 15px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
- & button {
+
+.card p {
+  color: #333333; /* Texto escuro */
+  font-weight: 500;
+  margin: 0; /* Remove a margem padrão */
+}
+
+.card span {
+  font-weight: normal;
+}
+
+/* Botão dentro do cartão */
+.card button {
   background-color: transparent;
   border: none;
   cursor: pointer;
- }
+  transition: opacity 0.3s, transform 0.3s; /* Transição suave */
+}
 
- & button:hover {
-  opacity: 0.5;
- }
+.card button:hover {
+  opacity: 0.7; /* Efeito de opacidade no hover */
+  transform: scale(1.05); /* Efeito de ampliação no hover */
+}
+
+
+
+

@@ -1,0 +1,68 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte moderna */
+    background-color: #f4f4f4; /* Fundo claro e neutro */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex; /* Define o container como um flex container */
+    flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte se não houver espaço suficiente */
+    gap: 20px; /* Espaçamento entre os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    padding: 20px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite a quebra de linha dos cartões se não houver espaço suficiente */
+    gap: 20px; /* Espaçamento entre os cartões */
+    justify-content: center; /* Centraliza os cartões horizontalmente */
+}
+
+.card {
+    flex: 1 1 calc(50% - 30px); /* Ajusta a largura dos cartões, considerando o espaçamento */
+    max-width: 400px; /* Tamanho máximo dos cartões */
+    background-color: #ffffff; /* Fundo branco */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+    display: flex;
+    flex-direction: column; /* Organiza os itens verticalmente */
+    gap: 50px; /* Espaçamento entre os itens */
+}
+
+.card h1 {
+    color: #333333; /* Cor do texto do título */
+    font-size: 24px; /* Tamanho do texto do título */
+    margin: 0; /* Remove a margem padrão */
+}
+
+.card p {
+    color: #666666; /* Texto mais claro para contraste */
+    font-weight: 400;
+    margin: 0; /* Remove a margem padrão */
+    font-size: 20px;
+    flex: 1; /* Faz com que o parágrafo ocupe o espaço disponível */
+}
+
+.card button {
+    background-color: #9c2e2e; /* Cor do fundo do botão */
+    color: #ffffff;/* Cor do texto do botão */
+    border: none;
+    padding: 25px 35px; /* Espaçamento interno do botão */
+    border-radius: 10px; /* Cantos arredondados do botão */
+    cursor: pointer;
+    justify-content: center;
+    transition: opacity 0.3s, transform 0.3s; /* Transição suave */
+    align-self: center; /* Alinha o botão ao início do cartão */
+}
+
+.card button:hover {
+    opacity: 0.8; /* Efeito de opacidade no hover */
+    transform: translateY(-2px); /* Levanta o botão levemente no hover */
+}
+.card buttonContas{
+    align-items: center;
+}

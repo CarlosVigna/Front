@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
-import Trash from '../../assets/16qg.svg';
 import api from "../../services/api";
-import './style.css';
+import './styleCadastro.css';
 
-function Home() {
+function CadastroUsuario() {
   const [usuarios, setUsuarios] = useState([]); 
 
   async function getUsuarios() {
@@ -23,23 +21,17 @@ function Home() {
   return (
     <div className='container'>
       <form>
-        <h1>Login</h1>
-        
+        <h1>Cadastro</h1>
+        <input placeholder="Nome" name='nome' type='text' />
         <input placeholder="Email" name='email' type='email' />
         <input placeholder="Senha" name='senha' type='text' />
-
-        <Link to="/contas">
-        <button className="button">Entrar</button>
-        </Link>
-        <Link to="/cadastro">
-        <button className="button">Cadastrar</button>
-        </Link>
-        
+        <button type='button'>Cadastrar</button>
       </form>
 
       {usuarios.map((usuario) => (
         <div key={usuario.id} className="card">
           <div>
+            <p>Nome: <span>{usuario.nome}</span></p>
             <p>Email: <span>{usuario.email}</span></p>
             <p>Senha: <span>{usuario.senha}</span></p>
           </div>
@@ -52,4 +44,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default CadastroUsuario;
