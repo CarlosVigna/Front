@@ -1,81 +1,82 @@
+/* Container Principal */
+/* Estiliza o container principal do layout */
 .container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 100px;
+  display: flex; /* Usa flexbox para layout. */
+  align-items: center; /* Alinha os itens verticalmente ao centro. */
+  justify-content: center; /* Alinha os itens horizontalmente ao centro. */
+  flex-direction: column; /* Organiza os itens na vertical. */
+  padding: 50px 20px; /* Adiciona preenchimento interno ao container. */
+  min-height: 80vh; /* Define a altura mínima do container para 80% da altura da viewport. */
 }
 
+/* Título */
+/* Estiliza o elemento <h1> */
 h1 {
-  color: #fff;
-  font-size: 28px;
-  text-align: center;
-
+  color: #333333; /* Define a cor do texto como cinza escuro para contraste. */
+  font-size: 34px; /* Define o tamanho da fonte do título. */
+  text-align: center; /* Alinha o texto ao centro. */
+  margin-bottom: 20px; /* Adiciona espaço abaixo do título. */
+  font-weight: 600; /* Define o peso da fonte para negrito. */
 }
 
+/* Formulário */
+/* Estiliza o formulário */
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding: 30px;
-  border-radius: 10px;
-  background-color: #2E2D4E ;
-  max-width: 50%;
-  width: 400px;
-  margin-bottom: 20px;
-
-  & button {
-    border-radius: 30px;
-    background-color: #8b8ae1 ;
-    height: 40px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 15px;
-
-  } 
-
-  & button:hover {
-    opacity: 0.8;
-  }
-
-  & input {
-    border: 1px solid #48456c;
-    border-radius: 30px;
-    height: 40px;
-    background-color: #363653;
-    color: #fff;
-    font-size: 16px;
-    padding-left: 10px;
-    outline: none;
-  }
-
+  display: flex; /* Usa flexbox para layout interno do formulário. */
+  flex-direction: column; /* Organiza os itens do formulário na vertical. */
+  gap: 50px; /* Adiciona espaçamento entre os itens do formulário. */
+  padding: 30px; /* Adiciona preenchimento interno ao formulário. */
+  border-radius: 12px; /* Arredonda os cantos do formulário. */
+  background-color: #dd7e7e; /* Define a cor de fundo do formulário como vermelho. */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave ao formulário. */
+  max-width: 800px; /* Define a largura máxima do formulário. */
+  width: 120%; /* Faz com que o formulário ocupe 120% da largura disponível. 
+                  *Nota:* Isso pode fazer o formulário ultrapassar o contêiner pai, especialmente em telas menores. */
 }
 
-.card {
-  display: flex;
-  justify-content: space-between;
-  background-color: #2e2d4e;
-  margin: 10px;
-  padding: 10px;
-  width: 400px;
-  border-radius: 10px;
-
-  & p {
-    color: #fff;
-    font-weight: bold;
-  }
-
-  & span {
-    font-weight: normal;
-  }
-
+/* Estilos Comuns para Botões */
+/* Estiliza todos os botões com a classe .button */
+.button {
+  border-radius: 12px; /* Arredonda os cantos dos botões. */
+  background-color: #0b9169; /* Define a cor de fundo dos botões. */
+  height: 45px; /* Define a altura dos botões. */
+  border-bottom:#333333; /* Remove a borda padrão dos botões. */
+  color: #FFFFFF; /* Define a cor do texto dos botões como branco. */
+  font-weight: 500; /* Define o peso da fonte dos botões. */
+  cursor: pointer; /* Muda o cursor para uma mão ao passar sobre o botão. */
+  font-size: 18px; /* Define o tamanho da fonte dos botões. */
+  transition: background-color 0.3s, transform 0.3s; /* Adiciona uma transição suave para cor de fundo e transformação. */
+  width: 100%; /* Faz com que os botões usem toda a largura disponível do formulário. */
 }
- & button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
- }
 
- & button:hover {
-  opacity: 0.5;
- }
+/* Efeito de hover sobre os botões */
+.button:hover {
+  background-color: #8d8989; /* Altera a cor de fundo para um tom mais escuro ao passar o mouse sobre o botão. */
+  transform: translateY(-2px); /* Adiciona um efeito de elevação ao botão. */
+}
+
+/* Efeito quando o botão é pressionado */
+.button:active {
+  transform: translateY(0); /* Remove o efeito de elevação quando o botão é pressionado. */
+}
+
+/* Campos de Entrada */
+/* Estiliza os campos de entrada do formulário */
+.input {
+  border: 1px solid #E0E0E0; /* Define a cor da borda dos campos de entrada como cinza claro. */
+  border-radius: 12px; /* Arredonda os cantos dos campos de entrada. */
+  height: 45px; /* Define a altura dos campos de entrada. */
+  background-color: #FFFFFF; /* Define a cor de fundo dos campos de entrada como branco. */
+  color: #333333; /* Define a cor do texto dos campos de entrada como cinza escuro. */
+  font-size: 16px; /* Define o tamanho da fonte dos campos de entrada. */
+  padding: 0 20px; /* Adiciona preenchimento interno horizontal aos campos de entrada. */
+
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra interna sutil aos campos de entrada. */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Adiciona uma transição suave para a cor da borda e a sombra. */
+}
+
+/* Efeito de foco nos campos de entrada */
+input:focus {
+  border-color: #ffffff; /* Altera a cor da borda para branca quando o campo está em foco. */
+  box-shadow: 0 0 5px rgba(250, 250, 250, 0.3); /* Adiciona uma sombra ao redor do campo quando em foco. */
+}

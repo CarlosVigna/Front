@@ -1,49 +1,50 @@
-import { useState, useEffect } from "react";
-import reactLogo from "../../assets/react.svg";
-import './style.css';
-import Trash from '../../assets/16qg.svg';
+import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import api from "../../services/api";
+import './style.css';
 
-function Home() {
-  const [usuarios, setUsuarios] = useState([]);  // Inicialize o estado para os usuários
 
-  async function getUsuarios() {
-    try {
-      const response = await api.get('/usuarios');
-      setUsuarios(response.data);  // Atualize o estado com os dados recebidos da API
-    } catch (error) {
-      console.error('Erro ao buscar usuários', error);  // Capture e mostre o erro, se houver
-    }
-  }
+  const openPopup = () => {    
+    const width = 1000;
+    const height = 800;
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.innerHeight - height) / 2; 
 
-  useEffect(() => {
-    getUsuarios();  // Chama a função para buscar os usuários quando o componente é montado
-  }, []);
+    window.open(
+      '/cadastro',
+      '_blank',
+      `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`,
+    );
+  };
 
+  function Home() {
   return (
     <div className='container'>
       <form>
-        <h1>Cadastro de usuários</h1>
-        <input placeholder="Nome" name='nome' type='text' />
-        <input placeholder="Email" name='email' type='email' />
-        <input placeholder="Senha" name='senha' type='text' />
-        <button type='button'>Cadastrar</button>
+        <h1>Login</h1>
+        
+        <input className="input" placeholder="Email" name='email' type='email' />
+        <input className="input" placeholder="Senha" name='senha' type='text' />
+
+        <Link to="/contas">
+        <button className="button">Entrar</button>
+        </Link>
+        
+        <button type='button' onClick= {openPopup} className="button">Cadastrar</button>
+                
       </form>
 
-      {usuarios.map((usuario) => (
+      {/* {usuarios.map((usuario) => (
         <div key={usuario.id} className="card">
           <div>
-            <p>Nome: <span>{usuario.nome}</span></p>
             <p>Email: <span>{usuario.email}</span></p>
             <p>Senha: <span>{usuario.senha}</span></p>
           </div>
-          <button>
-            <img src={Trash} alt="Excluir" />
-          </button>
+          
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }
-
+  
 export default Home;
