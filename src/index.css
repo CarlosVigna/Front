@@ -8,6 +8,6 @@
 body{
   min-height: 100vh;
   width: 100vw;
-  background: linear-gradient(180deg, #242222 0%, rgba(255, 255, 255, 0.8) 100%);
+  background:darkslategrey;
   
 }

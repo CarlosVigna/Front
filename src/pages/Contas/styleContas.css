@@ -1,16 +1,17 @@
 body {
-    font-family: 'Roboto', sans-serif; /* Fonte moderna */
-    background-color: #f4f4f4; /* Fundo claro e neutro */
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4; /* Cor de fundo mais clara para um contraste melhor */
     margin: 0;
     padding: 0;
 }
 
-.container {
+.contas-container {
     display: flex; /* Define o container como um flex container */
     flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte se não houver espaço suficiente */
     gap: 20px; /* Espaçamento entre os itens */
     justify-content: center; /* Centraliza os itens horizontalmente */
     padding: 20px;
+    align-items: flex-start;
 }
 
 .cards-container {
@@ -21,48 +22,53 @@ body {
 }
 
 .card {
-    flex: 1 1 calc(50% - 30px); /* Ajusta a largura dos cartões, considerando o espaçamento */
-    max-width: 400px; /* Tamanho máximo dos cartões */
-    background-color: #ffffff; /* Fundo branco */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    flex: 1 1 calc(50% - 20px); /* Ajusta a largura dos cartões, considerando o espaçamento */
+    max-width: 350px; /* Tamanho máximo dos cartões */
+    margin-top: 200px;
+    background-color: #444141; /* Fundo branco */
+    padding: 20px; /* Ajusta o espaçamento interno */
+    border-radius: 10px; /* Cantos arredondados do cartão */
+    box-shadow: 1 4px 12px rgba(255, 255, 255, 0.1); /* Sombra leve e moderna */
     box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
     display: flex;
     flex-direction: column; /* Organiza os itens verticalmente */
-    gap: 50px; /* Espaçamento entre os itens */
+    gap: 20px; /* Espaçamento entre os itens */
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s; /* Suaviza as transições */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda dentro do cartão */
+    height: 300px; /*regula artura */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Levanta o cartão levemente */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Intensifica a sombra */
+    border: 2px solid #fafafa; /* Borda verde moderna ao passar o mouse */
 }
 
 .card h1 {
-    color: #333333; /* Cor do texto do título */
+    color: #ffffff; /* Cor do texto do título */
     font-size: 24px; /* Tamanho do texto do título */
     margin: 0; /* Remove a margem padrão */
 }
 
 .card p {
-    color: #666666; /* Texto mais claro para contraste */
+    color: #ffffff; /* Texto escuro para contraste */
     font-weight: 400;
     margin: 0; /* Remove a margem padrão */
-    font-size: 20px;
-    flex: 1; /* Faz com que o parágrafo ocupe o espaço disponível */
+    font-size: 18px; /* Ajusta o tamanho da fonte */
+    text-align: left; /* Alinha o texto à esquerda */
 }
 
 .card button {
-    background-color: #9c2e2e; /* Cor do fundo do botão */
-    color: #ffffff;/* Cor do texto do botão */
+    background-color: #4caf50; /* Cor do fundo do botão */
+    color: #ffffff; /* Cor do texto do botão */
     border: none;
-    padding: 25px 35px; /* Espaçamento interno do botão */
-    border-radius: 10px; /* Cantos arredondados do botão */
+    padding: 10px 20px; /* Ajusta o espaçamento interno do botão */
+    border-radius: 5px; /* Cantos arredondados do botão */
     cursor: pointer;
-    justify-content: center;
-    transition: opacity 0.3s, transform 0.3s; /* Transição suave */
-    align-self: center; /* Alinha o botão ao início do cartão */
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave para cor e movimento */
 }
 
 .card button:hover {
-    opacity: 0.8; /* Efeito de opacidade no hover */
-    transform: translateY(-2px); /* Levanta o botão levemente no hover */
-}
-.card buttonContas{
-    align-items: center;
+    background-color: #ffffff; /* Cor mais escura no hover */
+    transform: translateY(-2px); /* Leve elevação no hover */
 }

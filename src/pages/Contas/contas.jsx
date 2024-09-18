@@ -1,70 +1,63 @@
-import React from 'react';
-import './styleContas.css'; // Certifique-se de que o caminho está correto
+import React, { useEffect, useState } from 'react';
+import './styleContas.css';
 
-function Contas() {
+const URL = "http://localhost:8080";
+
+function ExibeContas() {
+  // Estado pra armazenar contas e usuários
+  const [contas, setContas] = useState([]);
+  const [usuarios, setUsuarios] = useState({});
+
+  // Função de buscar contas
+  async function getContas() {
+    const response = await fetch(URL + "/contas");
+    const data = await response.json();
+    setContas(data); // Atualiza o estado com as contas 
+
+    // Para cada conta, busque os usuários associados
+    data.forEach(async (conta) => {
+      const userResponse = await fetch(URL + `/contas/${conta.id}/usuarios`);
+      const userData = await userResponse.json();
+      setUsuarios((prev) => ({
+        ...prev,
+        [conta.id]: userData
+      }));
+    });
+  }
+
+  // Chama a função quando o componente for montado
+  useEffect(() => {
+    getContas();
+  }, []);
+
+  // Exibe as informações
   return (
-
-    <div className='container'>
-        <h1>Listagem de Contas</h1>
-      <div className='cards-container'>
-        <div className='card'>
-        <h1>CONTA USUARIO 01</h1>
-          <div>
-            <p>Administrador: <span>USUARIO 01</span></p>
+    <div className="contas-container">
+      <h1>Contas</h1>
+      {contas.length > 0 ? (
+        contas.map((conta) => (
+          <div key={conta.id} className="card">
+            <div>
+              <p>Usuário: <span>{conta.nome}</span></p>
+              <p>Saldo: <span>{conta.saldo}</span></p>
+              <div>
+                <h4>Usuários Associados:</h4>
+                {usuarios[conta.id] ? (
+                  usuarios[conta.id].map((usuario) => (
+                    <p key={usuario.id}>{usuario.nome}</p>
+                  ))
+                ) : (
+                  <p>Carregando usuários...</p>
+                )}
+              </div>
+            </div>
           </div>
-        
-          <button className="buttonContas">Entrar</button>
-        </div>
-        
-        <div className='card'>
-        <h1>CONTA FML</h1>
-          <div>
-            <p>Administrador: <span>USUARIO 01</span></p>
-            <p>Usuário: <span>USUARIO 02</span></p>
-          </div>
-          <button className="buttonContas">Entrar</button>
-        </div>
-        <div className='card'>
-        <h1>NOME DA CONTA</h1>
-          <div>
-            <p>Email: <span>example2@example.com</span></p>
-            <p>Senha: <span>password2</span></p>
-          </div>
-          <button className="buttonContas">Entrar</button>
-        </div>
-
-        {/* {contas.map((conta) => (
-        <div key={conta.id} className="card">
-          <div>
-            <p>Usuário: <span>{conta.usuario?}</span></p>
-          </div>
-          <button className="button">Entrar</button>
-        </div> */}
-
-        <div className='card'>
-        <h1>NOME DA CONTA</h1>
-          <div>
-            <p>Email: <span>example2@example.com</span></p>
-            <p>Senha: <span>password2</span></p>
-          </div>
-          
-          <button className="buttonContas">Entrar</button>
-          
-        </div>
-        <div className='card'>
-        <h1>NOME DA CONTA</h1>
-          <div>
-            <p>Email: <span>example2@example.com</span></p>
-            <p>Senha: <span>password2</span></p>
-          </div>
-          
-          <button className="buttonContas">Entrar</button>
-          
-        </div>
-        {/* Adicione mais cartões conforme necessário */}
-      </div>
+        ))
+      ) : (
+        <p>Carregando contas...</p>
+      )}
     </div>
   );
 }
 
-export default Contas;
+export default ExibeContas;
